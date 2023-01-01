@@ -3,8 +3,12 @@ using PersonalWebsite_v2.Models;
 
 namespace PersonalWebsite_v2.Repository
 {
-	public class PersonalInfoRepository : IPersonalInfoRepository
+	public class PersonalInfoRepository : RepositoryBase<PersonalInfo> , IPersonalInfoRepository
 	{
+		public PersonalInfoRepository(RepositoryContext repositoryContext):base(repositoryContext)
+		{
+
+		}
 		public void AddPersonalInfo(bool trackChanges)
 		{
 			throw new NotImplementedException();

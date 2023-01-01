@@ -20,7 +20,7 @@ namespace PersonalWebsite_v2.Repository
 
 		public DbSet<PersonalInfo> PersonalInfo { get; set; }
 		public DbSet<Skill> Skills { get; set; }
-		public DbSet<Fact> Facts { get; set; }
+		public DbSet<Fact> Fact { get; set; }
 
 
 	}

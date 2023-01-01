@@ -1,8 +1,13 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using PersonalWebsite_v2.Models;
+using PersonalWebsite_v2.Repository;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddDefaultIdentity<User>().AddRoles<IdentityRole>().AddEntityFrameworkStores<RepositoryContext>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -2,5 +2,9 @@
 {
 	public interface IRepositoryManager
 	{
+		IPersonalInfoRepository PersonalInfoRepository { get; }
+		IFactsRepository FactsRepository { get; }
+		ISkillsRepository SkillsRepository { get; }
+		void Save();
 	}
 }
