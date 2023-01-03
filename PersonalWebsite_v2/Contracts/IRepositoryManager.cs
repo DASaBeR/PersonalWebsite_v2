@@ -2,9 +2,11 @@
 {
 	public interface IRepositoryManager
 	{
-		IPersonalInfoRepository PersonalInfoRepository { get; }
-		IFactsRepository FactsRepository { get; }
-		ISkillsRepository SkillsRepository { get; }
+		IPersonalInfoRepository PersonalInfos { get; }
+		IFactsRepository Facts { get; }
+		ISkillsRepository Skills { get; }
+		ISpecialitiesRepository Specialities { get; }
+		IMusicsRepository Musics { get; }
 		void Save();
 	}
 }

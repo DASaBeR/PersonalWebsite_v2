@@ -19,7 +19,7 @@ namespace PersonalWebsite_v2.Repository
 			throw new NotImplementedException();
 		}
 
-		public PersonalInfo GetFacts(bool trackChanges)
+		public Fact GetFacts(bool trackChanges)
 		{
 			throw new NotImplementedException();
 		}

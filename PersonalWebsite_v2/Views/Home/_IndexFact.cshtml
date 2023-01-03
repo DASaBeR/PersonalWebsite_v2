@@ -1,4 +1,4 @@
-﻿
+﻿@model Fact
 
 <section id="facts" class="facts">
   <div class="container" data-aos="fade-up">
@@ -12,7 +12,7 @@
       <div class="col-lg-3 col-md-6">
         <div class="count-box">
           <i class="bi bi-emoji-smile"></i>
-          <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="3" class="purecounter"></span>
+          <span data-purecounter-start="0" data-purecounter-end="@Model.HappyClient" data-purecounter-duration="3" class="purecounter"></span>
           <p>Happy Clients</p>
         </div>
       </div>
@@ -20,7 +20,7 @@
       <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
         <div class="count-box">
           <i class="bi bi-journal-richtext"></i>
-          <span data-purecounter-start="0" data-purecounter-end="23" data-purecounter-duration="3" class="purecounter"></span>
+          <span data-purecounter-start="0" data-purecounter-end="@Model.Projects" data-purecounter-duration="3" class="purecounter"></span>
           <p>Projects</p>
         </div>
       </div>
@@ -28,7 +28,7 @@
       <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
         <div class="count-box">
           <i class="bi bi-headset"></i>
-          <span data-purecounter-start="0" data-purecounter-end="1485" data-purecounter-duration="3" class="purecounter"></span>
+          <span data-purecounter-start="0" data-purecounter-end="@Model.HoursOfSupport" data-purecounter-duration="3" class="purecounter"></span>
           <p>Hours Of Support</p>
         </div>
       </div>
@@ -36,7 +36,7 @@
       <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
         <div class="count-box">
           <i class="bi bi-award"></i>
-          <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="3" class="purecounter"></span>
+          <span data-purecounter-start="0" data-purecounter-end="@Model.Awards" data-purecounter-duration="3" class="purecounter"></span>
           <p>Awards</p>
         </div>
       </div>

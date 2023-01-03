@@ -8,13 +8,19 @@ namespace PersonalWebsite_v2.Repository
 		private IPersonalInfoRepository _personalInfoRepository;
 		private IFactsRepository _factsRepository;
 		private ISkillsRepository _skillsRepository;
+		private ISpecialitiesRepository _specialitiesRepository;
+		private IMusicsRepository _musicsRepository;
 
-		public RepositoryManager(RepositoryContext repositoryContext, IPersonalInfoRepository personalInfoRepository, IFactsRepository factsRepository, ISkillsRepository skillsRepository)
+		public RepositoryManager(RepositoryContext repositoryContext, IPersonalInfoRepository personalInfoRepository,
+			IFactsRepository factsRepository, ISkillsRepository skillsRepository,
+			ISpecialitiesRepository specialitiesRepository, IMusicsRepository musicsRepository)
 		{
 			_repositoryContext = repositoryContext;
+			_specialitiesRepository = specialitiesRepository;
+			_musicsRepository = musicsRepository;
 		}
 
-		public IPersonalInfoRepository PersonalInfoRepository
+		public IPersonalInfoRepository PersonalInfos
 		{
 			get
 			{
@@ -24,7 +30,7 @@ namespace PersonalWebsite_v2.Repository
 			}
 		}
 
-		public IFactsRepository FactsRepository
+		public IFactsRepository Facts
 		{
 			get
 			{
@@ -34,13 +40,33 @@ namespace PersonalWebsite_v2.Repository
 			}
 		}
 
-		public ISkillsRepository SkillsRepository
+		public ISkillsRepository Skills
 		{
 			get
 			{
 				if (_skillsRepository == null)
 					_skillsRepository = new SkillsRepository(_repositoryContext);
 				return (_skillsRepository);
+			}
+		}
+
+		public ISpecialitiesRepository Specialities
+		{
+			get
+			{
+				if (_specialitiesRepository == null)
+					_specialitiesRepository = new SpecialitiesRepository(_repositoryContext);
+				return (_specialitiesRepository);
+			}
+		}
+
+		public IMusicsRepository Musics
+		{
+			get
+			{
+				if (_musicsRepository == null)
+					_musicsRepository = new MusicsRepository(_repositoryContext);
+				return (_musicsRepository);
 			}
 		}
 

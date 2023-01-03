@@ -2,11 +2,11 @@
 
 namespace PersonalWebsite_v2.Models
 {
-	public class Skill
+	public class Music
 	{
 		[Key]
 		public Guid Id { get; set; }
 		public string Name { get; set; }
-		public int Percent { get; set; }
+		public string Link { get; set; }
 	}
 }

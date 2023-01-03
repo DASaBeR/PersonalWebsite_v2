@@ -1,14 +1,25 @@
-﻿
+﻿@model IndexVM
+@{
+	var specialties = "";
+	foreach (var item in Model.Specialties)
+	{
+		specialties = specialties + item.Name + ", ";
+	}
+	
+}
 
 <section id="hero" class="d-flex flex-column justify-content-center">
-  <div id="anti" class="container" data-aos="zoom-in" data-aos-delay="100">
-    <h1>Mohsen Saberi</h1>
-    <p>I'm <span class="typed" data-typed-items="Thinker, Cross-Platform Developer, Project Consultant, Graphic Designer, Freelancer,"></span></p>
-    <div class="social-links">
-      <a href="http://t.me/HossienHunTa" class="telegram"><i class="bi bi-telegram"></i></a>
-      <a href="http://wa.me/+989152122109" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
-      <a href="https://www.instagram.com/hossienhunta/" class="instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
-      <a href="https://github.com/hossienhunta" class="github"><i class="bi bi-github"></i></a>
-    </div>
-  </div>
+	<div id="anti" class="container" data-aos="zoom-in" data-aos-delay="100">
+		<h1>Mohsen Saberi</h1>
+		<p>
+			I'm
+			<span class="typed" data-typed-items="@specialties"></span>
+		</p>
+		<div class="social-links">
+			<a href="@Model.PersonalInfo.Telegram" class="telegram"><i class="bi bi-telegram"></i></a>
+			<a href="@Model.PersonalInfo.WhatsApp" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
+			<a href="@Model.PersonalInfo.Instagram" class="instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+			<a href="@Model.PersonalInfo.Github" class="github"><i class="bi bi-github"></i></a>
+		</div>
+	</div>
 </section><!-- End Hero -->

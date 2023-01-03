@@ -15,6 +15,8 @@ namespace PersonalWebsite_v2.Models
 		public string Phone { get; set; }
 		public string Email { get; set; }
 		public string Telegram { get; set; }
+		public string WhatsApp { get; set; }
+		public string Instagram { get; set; }
 		public string Linkdin { get; set; }
 		public string Github { get; set; }
 		public bool IsFreeLance { get; set; }

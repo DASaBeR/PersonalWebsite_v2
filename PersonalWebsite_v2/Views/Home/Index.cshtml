@@ -1,8 +1,8 @@
-﻿
+﻿@model IndexVM
 
-<partial name="_IndexHead.cshtml" />
-<partial name="_IndexAbout.cshtml" />
-<partial name="_IndexFact.cshtml" />
-<partial name="_IndexSkills.cshtml" />
-<partial name="_IndexContact.cshtml" />
-<partial name="_IndexFooter.cshtml" />
+<partial name="_IndexHead.cshtml" model="Model" />
+<partial name="_IndexAbout.cshtml" model="Model.PersonalInfo" />
+<partial name="_IndexFact.cshtml" model="Model.Fact" />
+<partial name="_IndexSkills.cshtml" model="Model.Skills" />
+<partial name="_IndexContact.cshtml" model="Model.PersonalInfo" />
+<partial name="_IndexFooter.cshtml" model="Model"/>

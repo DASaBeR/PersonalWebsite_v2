@@ -1,4 +1,4 @@
-﻿
+﻿@model PersonalInfo
 
 	<section id="contact" class="contact">
 		<div class="container" data-aos="fade-up">
@@ -14,13 +14,13 @@
 						<div class="email">
 							<i class="bi bi-envelope"></i>
 							<h4>Email:</h4>
-							<p>hossien021.m@gmail.com  hossien021.m@yahoo.com</p>
+							<p>@Model.Email</p>
 						</div>
 
 						<div class="phone">
 							<i class="bi bi-phone"></i>
 							<h4>Call:</h4>
-							<p>+98 915 212 2109</p>
+							<p>@Model.Phone</p>
 						</div>
 
 					</div>
@@ -41,7 +41,7 @@
 						<div class="form-group mt-3">
 							<textarea class="form-control" name="message" onchange="send_mail()" id="message" rows="5" placeholder="Message" required></textarea>
 						</div>
-						<div class="text-center"><button type="submit"><a href="mailto: hossien021.m@yahoo.com" id="send">Send Message</a></button></div>
+						<div class="text-center"><button type="submit"><a href="mailto: @Model.Email" id="send">Send Message</a></button></div>
 					</form>
 
 				</div>
