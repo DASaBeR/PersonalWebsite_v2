@@ -14,10 +14,8 @@ namespace PersonalWebsite_v2.Repository
 			throw new NotImplementedException();
 		}
 
-		public PersonalInfo GetPersonalInfo(bool trackChanges)
-		{
-			throw new NotImplementedException();
-		}
+		public PersonalInfo GetPersonalInfo(bool trackChanges) =>
+			FindAll(trackChanges).FirstOrDefault();
 
 		public void RemovePersonalInfo(Guid id)
 		{

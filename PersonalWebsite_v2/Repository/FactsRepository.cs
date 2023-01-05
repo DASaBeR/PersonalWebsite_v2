@@ -19,10 +19,8 @@ namespace PersonalWebsite_v2.Repository
 			throw new NotImplementedException();
 		}
 
-		public Fact GetFacts(bool trackChanges)
-		{
-			throw new NotImplementedException();
-		}
+		public Fact GetFacts(bool trackChanges) =>
+			FindAll(trackChanges).FirstOrDefault();
 
 		public void UpdateFacts(Fact fact)
 		{

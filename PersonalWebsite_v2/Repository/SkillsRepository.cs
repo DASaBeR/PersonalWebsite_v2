@@ -10,22 +10,20 @@ namespace PersonalWebsite_v2.Repository
 
 		}
 
-		public void AddEdu(Skill skill)
+		public void AddSkill(Skill skill)
 		{
 			throw new NotImplementedException();
 		}
 
-		public void DeleteEdu(Skill skill)
+		public void DeleteSkill(Skill skill)
 		{
 			throw new NotImplementedException();
 		}
 
-		public IEnumerable<Skill> GetEducations(bool trackChanges)
-		{
-			throw new NotImplementedException();
-		}
+		public IEnumerable<Skill> GetSkills(bool trackChanges) =>
+			FindAll(trackChanges).ToList();
 
-		public void UpdateEdu(Skill skill)
+		public void UpdateSkill(Skill skill)
 		{
 			throw new NotImplementedException();
 		}

@@ -20,10 +20,8 @@ namespace PersonalWebsite_v2.Repository
 			throw new NotImplementedException();
 		}
 
-		public IEnumerable<Music> GetMusics(bool trackChanges)
-		{
-			throw new NotImplementedException();
-		}
+		public IEnumerable<Music> GetMusics(bool trackChanges) =>
+			FindAll(trackChanges).ToList();
 
 		public void UpdateMusic(Music music)
 		{

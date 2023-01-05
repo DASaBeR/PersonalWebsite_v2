@@ -20,10 +20,8 @@ namespace PersonalWebsite_v2.Repository
 			throw new NotImplementedException();
 		}
 
-		public IEnumerable<Specialty> GetSpecialities(bool trackChanges)
-		{
-			throw new NotImplementedException();
-		}
+		public IEnumerable<Specialty> GetSpecialities(bool trackChanges) =>
+			FindAll(trackChanges).ToList();
 
 		public void UpdateSpecialty(Specialty specialty)
 		{
