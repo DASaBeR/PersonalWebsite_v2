@@ -3,27 +3,27 @@ using PersonalWebsite_v2.Models;
 
 namespace PersonalWebsite_v2.Repository
 {
-	public class SpecialitiesRepository : RepositoryBase<Specialty> , ISpecialitiesRepository
+	public class SpecialitiesRepository : RepositoryBase<Speciality> , ISpecialitiesRepository
 	{
 		public SpecialitiesRepository(RepositoryContext repositoryContext) : base(repositoryContext)
 		{
 
 		}
 
-		public void AddSpecialty(Specialty specialty)
+		public void AddSpecialty(Speciality specialty)
 		{
 			throw new NotImplementedException();
 		}
 
-		public void DeleteSpecialty(Specialty specialty)
+		public void DeleteSpecialty(Speciality specialty)
 		{
 			throw new NotImplementedException();
 		}
 
-		public IEnumerable<Specialty> GetSpecialities(bool trackChanges) =>
+		public IEnumerable<Speciality> GetSpecialities(bool trackChanges) =>
 			FindAll(trackChanges).ToList();
 
-		public void UpdateSpecialty(Specialty specialty)
+		public void UpdateSpecialty(Speciality specialty)
 		{
 			throw new NotImplementedException();
 		}

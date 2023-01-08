@@ -4,20 +4,17 @@ namespace PersonalWebsite_v2.Repository
 {
 	public class RepositoryManager : IRepositoryManager
 	{
-		private RepositoryContext _repositoryContext;
-		private IPersonalInfoRepository _personalInfoRepository;
-		private IFactsRepository _factsRepository;
-		private ISkillsRepository _skillsRepository;
-		private ISpecialitiesRepository _specialitiesRepository;
-		private IMusicsRepository _musicsRepository;
 
-		public RepositoryManager(RepositoryContext repositoryContext, IPersonalInfoRepository personalInfoRepository,
-			IFactsRepository factsRepository, ISkillsRepository skillsRepository,
-			ISpecialitiesRepository specialitiesRepository, IMusicsRepository musicsRepository)
+		private RepositoryContext _repositoryContext;
+		private IPersonalInfoRepository? _personalInfoRepository;
+		private IFactsRepository? _factsRepository;
+		private ISkillsRepository? _skillsRepository;
+		private ISpecialitiesRepository? _specialitiesRepository;
+		private IMusicsRepository? _musicsRepository;
+
+		public RepositoryManager(RepositoryContext repositoryContext)
 		{
 			_repositoryContext = repositoryContext;
-			_specialitiesRepository = specialitiesRepository;
-			_musicsRepository = musicsRepository;
 		}
 
 		public IPersonalInfoRepository PersonalInfos
@@ -70,9 +67,8 @@ namespace PersonalWebsite_v2.Repository
 			}
 		}
 
-		public void Save()
-		{
-			throw new NotImplementedException();
-		}
+		public void Save() => _repositoryContext.SaveChanges();
+
+
 	}
 }

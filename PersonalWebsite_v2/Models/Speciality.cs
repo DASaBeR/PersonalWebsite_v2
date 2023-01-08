@@ -2,7 +2,7 @@
 
 namespace PersonalWebsite_v2.Models
 {
-	public class Specialty
+	public class Speciality
 	{
 		[Key]
 		public Guid Id { get; set; }

@@ -1,27 +1,23 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using PersonalWebsite_v2.Extentions;
-using PersonalWebsite_v2.Models;
 using PersonalWebsite_v2.Repository;
 
-namespace test
+namespace PersonalWebsite_v2
 {
 	public class Program
 	{
 		public static void Main(string[] args)
 		{
 			var builder = WebApplication.CreateBuilder(args);
+
 			// Add services to the container.
 			builder.Services.AddControllersWithViews();
-			//builder.Services.AddDefaultIdentity<User>().AddRoles<IdentityRole>().AddEntityFrameworkStores<RepositoryContext>();
-			//var host = CreateHostBuilder(args).Build();
-			//host.MigrateDatabase<RepositoryContext>((context, services) =>
-			//{
-			//	var logger = services.GetService<ILogger<RepositoryContextSeed>>();
-			//	RepositoryContextSeed.SeedAsync(context, logger).Wait();
 
-			//});
-			//host.Run();
+			builder.Services.ConfigureSqlContext(builder.Configuration);
+			builder.Services.ConfigureRepositoryManager();
+			builder.Services.ConfigureIdentity();
+
 
 			var app = builder.Build();
 
@@ -40,6 +36,13 @@ namespace test
 
 			app.UseAuthorization();
 
+			app.MigrateDatabase<RepositoryContext>((context, services) =>
+			{
+				var logger = services.GetService<ILogger<RepositoryContextSeed>>();
+				RepositoryContextSeed.SeedAsync(context, logger).Wait();
+
+			});
+
 			app.MapControllerRoute(
 					name: "default",
 					pattern: "{controller=Home}/{action=Index}/{id?}");
@@ -47,10 +50,5 @@ namespace test
 			app.Run();
 		}
 
-		public static IHostBuilder CreateHostBuilder(string[] args) =>
-				Host.CreateDefaultBuilder(args)
-						.ConfigureWebHostDefaults(webBuilder =>
-						{
-						});
 	}
 }

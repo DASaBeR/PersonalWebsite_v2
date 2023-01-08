@@ -24,9 +24,10 @@ namespace PersonalWebsite_v2.Controllers
 			var skills = _repository.Skills.GetSkills(trackChanges: false);
 			var musics = _repository.Musics.GetMusics(trackChanges: false);
 
+			
 			var vm = new IndexVM
 			{
-				PersonalInfo =
+				PersonalInfo = new PersonalInfo
 				{
 					AboutMe = personalInfo.AboutMe,
 					Age = personalInfo.Age,
@@ -44,7 +45,7 @@ namespace PersonalWebsite_v2.Controllers
 					WhatsApp = personalInfo.WhatsApp
 				},
 				Specialties = specialities,
-				Fact =
+				Fact = new Fact
 				{
 					HappyClient = fact.HappyClient,
 					Awards = fact.Awards,

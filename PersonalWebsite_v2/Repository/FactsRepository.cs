@@ -3,8 +3,9 @@ using PersonalWebsite_v2.Models;
 
 namespace PersonalWebsite_v2.Repository
 {
-	public class FactsRepository : RepositoryBase<Fact>, IFactsRepository
+	public class FactsRepository : RepositoryBase<Fact> , IFactsRepository
 	{
+
 		public FactsRepository(RepositoryContext repositoryContext):base(repositoryContext)
 		{
 
@@ -26,5 +27,7 @@ namespace PersonalWebsite_v2.Repository
 		{
 			throw new NotImplementedException();
 		}
+
+
 	}
 }

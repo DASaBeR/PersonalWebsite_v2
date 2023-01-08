@@ -6,24 +6,45 @@ namespace PersonalWebsite_v2.Repository
 	{
 		public static async Task SeedAsync(RepositoryContext context, ILogger<RepositoryContextSeed> logger)
 		{
-			if (!context.PersonalInfo.Any())
+			try
 			{
-				context.PersonalInfo.Add(GetPreconfiguredPersonalInfo());
-				await context.SaveChangesAsync();
-				logger.LogInformation("Seed database associated with context {DbContextName}", typeof(RepositoryContext).Name);
+				if (!context.PersonalInfos.Any())
+				{
+					context.PersonalInfos.Add(GetPreconfiguredPersonalInfo());
+					await context.SaveChangesAsync();
+					logger.LogInformation("Seed database associated with context {DbContextName}", typeof(RepositoryContext).Name);
+				}
+				if (!context.Skills.Any())
+				{
+					context.Skills.AddRange(GetPreconfiguredSkills());
+					await context.SaveChangesAsync();
+					logger.LogInformation("Seed database associated with context {DbContextName}", typeof(RepositoryContext).Name);
+				}
+				if (!context.Facts.Any())
+				{
+					context.Facts.Add(GetPreconfiguredFact());
+					await context.SaveChangesAsync();
+					logger.LogInformation("Seed database associated with context {DbContextName}", typeof(RepositoryContext).Name);
+				}
+				if (!context.Musics.Any())
+				{
+					context.Musics.AddRange(GetPreconfiguredMusic());
+					await context.SaveChangesAsync();
+					logger.LogInformation("Seed database associated with context {DbContextName}", typeof(RepositoryContext).Name);
+				}
+				if (!context.Specialities.Any())
+				{
+					context.Specialities.AddRange(GetPreconfiguredSpecialties());
+					await context.SaveChangesAsync();
+					logger.LogInformation("Seed database associated with context {DbContextName}", typeof(RepositoryContext).Name);
+				}
 			}
-			if (!context.Skills.Any())
+			catch (Exception ex)
 			{
-				context.Skills.AddRange(GetPreconfiguredSkills());
-				await context.SaveChangesAsync();
-				logger.LogInformation("Seed database associated with context {DbContextName}", typeof(RepositoryContext).Name);
+
+				throw ex;
 			}
-			if (!context.Fact.Any())
-			{
-				context.Fact.Add(GetPreconfiguredFact());
-				await context.SaveChangesAsync();
-				logger.LogInformation("Seed database associated with context {DbContextName}", typeof(RepositoryContext).Name);
-			}
+			
 		}
 
 		private static PersonalInfo GetPreconfiguredPersonalInfo()
@@ -38,13 +59,13 @@ namespace PersonalWebsite_v2.Repository
 								Degree = "Bachelors in Mechanical Engineering",
 								Email = "M.saberi1999@gmail.com",
 								Name = "Mohsen Saberi",
-								Github = "",
-								Instagram ="",
+								Github = "asdasd",
+								Instagram ="asdasdads",
 								IsFreeLance = true,
-								Linkdin = "",
+								Linkdin = "asdadsasd",
 								Phone = "+98 930 407 2620",
-								Telegram = "" ,
-								WhatsApp = ""
+								Telegram = "asdasdasd" ,
+								WhatsApp = "asdasdasd"
 			};
 		}
 
@@ -79,15 +100,15 @@ namespace PersonalWebsite_v2.Repository
 			};
 		}
 
-		private static IEnumerable<Specialty> GetPreconfiguredSpecialties()
+		private static IEnumerable<Speciality> GetPreconfiguredSpecialties()
 		{
-			return new List<Specialty>
+			return new List<Speciality>
 			{
-				new Specialty() {Id = Guid.NewGuid(), Name = "Cross-Platform Developer"},
-				new Specialty() {Id = Guid.NewGuid(), Name = "Mechanic Engeenier"},
-				new Specialty() {Id = Guid.NewGuid(), Name = "Web Developer"},
-				new Specialty() {Id = Guid.NewGuid(), Name = "Artificial Intelligence Engineer"},
-				new Specialty() {Id = Guid.NewGuid(), Name = "Thinker"}
+				new Speciality() {Id = Guid.NewGuid(), Name = "Cross-Platform Developer"},
+				new Speciality() {Id = Guid.NewGuid(), Name = "Mechanic Engeenier"},
+				new Speciality() {Id = Guid.NewGuid(), Name = "Web Developer"},
+				new Speciality() {Id = Guid.NewGuid(), Name = "Artificial Intelligence Engineer"},
+				new Speciality() {Id = Guid.NewGuid(), Name = "Thinker"}
 
 			};
 		}

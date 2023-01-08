@@ -4,9 +4,9 @@ namespace PersonalWebsite_v2.Contracts
 {
 	public interface ISpecialitiesRepository
 	{
-		IEnumerable<Specialty> GetSpecialities(bool trackChanges);
-		void AddSpecialty(Specialty specialty);
-		void UpdateSpecialty(Specialty specialty);
-		void DeleteSpecialty(Specialty specialty);
+		IEnumerable<Speciality> GetSpecialities(bool trackChanges);
+		void AddSpecialty(Speciality specialty);
+		void UpdateSpecialty(Speciality specialty);
+		void DeleteSpecialty(Speciality specialty);
 	}
 }

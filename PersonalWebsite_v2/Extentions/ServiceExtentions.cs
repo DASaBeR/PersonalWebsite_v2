@@ -8,12 +8,19 @@ namespace PersonalWebsite_v2.Extentions
 {
 	public static class ServiceExtentions
 	{
-		public static void ConfigureSqlContext(this IServiceCollection services, IConfiguration configuration) =>
-				services.AddDbContext<RepositoryContext>(opts =>
-				opts.UseSqlServer(configuration.GetConnectionString("sqlConnection")));
+		public static void ConfigureSqlContext(this IServiceCollection services,IConfiguration configuration) =>
+			services.AddDbContext<RepositoryContext>(opts =>
+			opts.UseSqlServer(configuration.GetConnectionString("sqlConnection"),
+				sqlServerOptionsAction: sqlOptions =>
+				{
+					sqlOptions.EnableRetryOnFailure();
+				}
+				));
+
 
 		public static void ConfigureRepositoryManager(this IServiceCollection services) =>
-		services.AddScoped<IRepositoryManager, RepositoryManager>();
+				services.AddScoped<IRepositoryManager, RepositoryManager>();
+
 
 		public static void ConfigureIdentity(this IServiceCollection services)
 		{

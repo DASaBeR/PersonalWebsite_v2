@@ -5,6 +5,7 @@ namespace PersonalWebsite_v2.Repository
 {
 	public class SkillsRepository : RepositoryBase<Skill> , ISkillsRepository
 	{
+
 		public SkillsRepository(RepositoryContext repositoryContext):base(repositoryContext)
 		{
 
@@ -27,5 +28,7 @@ namespace PersonalWebsite_v2.Repository
 		{
 			throw new NotImplementedException();
 		}
+
+
 	}
 }

@@ -45,10 +45,12 @@ namespace PersonalWebsite_v2.Extentions
 		private static void InvokeSeeder<TContext>(Action<TContext, IServiceProvider> seeder,
 																								TContext context,
 																								IServiceProvider services)
-																								where TContext : DbContext
+																								where TContext : IdentityDbContext<User>
 		{
 			context.Database.Migrate();
 			seeder(context, services);
 		}
+
+
 	}
 }
