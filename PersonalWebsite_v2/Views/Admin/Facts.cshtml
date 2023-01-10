@@ -1,0 +1,47 @@
+﻿@model Fact
+@{
+    ViewData["Title"] = "Facts";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div style="padding: 60px 200px 60px;" class="col-md-12">
+  <div class="card card-warning">
+    <div class="card-header">
+      <h3 class="card-title">Facts Form</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <form role="form" method="post" href="@Url.Action("Facts","Admin")">
+        <!-- text input -->
+        <div class="form-group">
+          <label>Happy Clients</label>
+          <input asp-for="HappyClient" type="text"
+                 class="form-control"
+                 placeholder="Enter Number of Happy Clients . . ." />
+        </div>
+        <div class="form-group">
+          <label>Projects</label>
+          <input asp-for="Projects" type="text"
+                 class="form-control"
+                 placeholder="Enter Number of Projects . . ." />
+        </div>
+
+        <div class="form-group">
+          <label>Hours Of Support</label>
+          <input asp-for="HoursOfSupport" type="text"
+                 class="form-control"
+                 placeholder="Enter Hours Of Support . . ." />
+        </div>
+        <div class="form-group">
+          <label>Awards</label>
+          <input asp-for="Awards" type="text"
+                 class="form-control"
+                 placeholder="Enter Number of Awards . . ." />
+        </div>
+        <button role="button" class="btn btn-success" type="submit">Submit</button>
+      </form>
+    </div>
+    <!-- /.card-body -->
+  </div>
+</div>
+

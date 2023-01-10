@@ -99,7 +99,7 @@ namespace PersonalWebsite_v2.Controllers
 				Projects = facts.Projects
 			};
 
-			return View("Fact" , vm);
+			return View("Facts" , vm);
 		}
 
 
@@ -149,13 +149,17 @@ namespace PersonalWebsite_v2.Controllers
 		{
 			var skill = _repositoryManager.Skills.GetSkills(trackChanges: false).Where(s => s.Id == id).SingleOrDefault();
 
-			var vm = new SkillVM
+			if (skill != null)
 			{
-				Name = skill.Name,
-				Percent = skill.Percent,
-			};
+				var vm = new SkillVM
+				{
+					Name = skill.Name,
+					Percent = skill.Percent,
+				};
+				return View("Skill", vm);
+			}
 
-			return View("Skill", vm);
+			return RedirectToAction("Skills");
 		}
 
 		[HttpPost]
@@ -203,7 +207,7 @@ namespace PersonalWebsite_v2.Controllers
 
 		#endregion
 
-		#region " Speciality "
+		#region " Specialities "
 
 		[HttpGet]
 		public IActionResult Specialities()
@@ -265,7 +269,7 @@ namespace PersonalWebsite_v2.Controllers
 
 		#endregion
 
-		#region " Music "
+		#region " Musics "
 
 		[HttpGet]
 		public IActionResult Musics()
@@ -329,7 +333,6 @@ namespace PersonalWebsite_v2.Controllers
 		}
 
 		#endregion
-
 
 	}
 }

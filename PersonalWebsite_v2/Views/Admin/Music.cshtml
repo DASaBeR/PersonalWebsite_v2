@@ -1,0 +1,37 @@
+﻿@model Music
+@{
+	ViewData["Title"] = "Music";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div style="padding: 60px 200px 60px;" class="col-md-12">
+	<div class="card card-warning">
+		<div class="card-header">
+			<h3 class="card-title">Music</h3>
+		</div>
+		<!-- /.card-header -->
+		<div class="card-body">
+			<form role="form" method="post" href="@Url.Action("Music" , "Admin")">
+				<!-- text input -->
+				<div class="form-group">
+					<label>StartYear</label>
+					<input asp-for="Name" type="text"
+								 class="form-control"
+								 placeholder="Enter Music's Name . . ." />
+				</div>
+				<div class="form-group">
+					<label>EndYear</label>
+					<input asp-for="Link" type="text"
+								 class="form-control"
+								 placeholder="Enter Musics's Link . . ." />
+				</div>
+				<br />
+				<button class="btn btn-success" type="submit">
+					Submit
+				</button>
+			</form>
+		</div>
+		<!-- /.card-body -->
+	</div>
+</div>
+
