@@ -12,12 +12,12 @@ namespace PersonalWebsite_v2.Repository
 
 		public void AddSpecialty(Speciality specialty)
 		{
-			throw new NotImplementedException();
+			Create(specialty);
 		}
 
 		public void DeleteSpecialty(Speciality specialty)
 		{
-			throw new NotImplementedException();
+			Delete(specialty);
 		}
 
 		public IEnumerable<Speciality> GetSpecialities(bool trackChanges) =>
@@ -25,7 +25,7 @@ namespace PersonalWebsite_v2.Repository
 
 		public void UpdateSpecialty(Speciality specialty)
 		{
-			throw new NotImplementedException();
+			Update(specialty);
 		}
 	}
 }

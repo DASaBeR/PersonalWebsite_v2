@@ -1,9 +1,11 @@
-﻿using PersonalWebsite_v2.Models;
+﻿using Microsoft.AspNetCore.Identity;
+using PersonalWebsite_v2.Models;
 
 namespace PersonalWebsite_v2.Repository
 {
 	public class RepositoryContextSeed
 	{
+
 		public static async Task SeedAsync(RepositoryContext context, ILogger<RepositoryContextSeed> logger)
 		{
 			try
@@ -37,6 +39,24 @@ namespace PersonalWebsite_v2.Repository
 					context.Specialities.AddRange(GetPreconfiguredSpecialties());
 					await context.SaveChangesAsync();
 					logger.LogInformation("Seed database associated with context {DbContextName}", typeof(RepositoryContext).Name);
+				}
+				if (!context.Users.Any())
+				{
+					context.Users.Add(GetUser());
+					await context.SaveChangesAsync();
+					logger.LogInformation("Seed database associated with context {DbContextName}", typeof(RepositoryContext).Name);
+				}
+				if (!context.UserRoles.Any())
+				{
+
+					context.UserRoles.Add(new IdentityUserRole<string>
+					{
+						UserId = context.Users.First().Id,
+						RoleId = context.Roles.First().Id
+					});
+					await context.SaveChangesAsync();
+					logger.LogInformation("Seed database associated with context {DbContextName}", typeof(RepositoryContext).Name);
+
 				}
 			}
 			catch (Exception ex)
@@ -74,7 +94,8 @@ namespace PersonalWebsite_v2.Repository
 			return new List<Skill>
 			{
 				new Skill() {Id = Guid.NewGuid() , Name = "Asp.NET" , Percent = 90},
-				new Skill() {Id = Guid.NewGuid(), Name = "Csharp", Percent = 90}
+				new Skill() {Id = Guid.NewGuid(), Name = "Csharp", Percent = 85},
+				new Skill() {Id = Guid.NewGuid(), Name = "Python", Percent = 75}
 			};
 		}
 
@@ -112,5 +133,30 @@ namespace PersonalWebsite_v2.Repository
 
 			};
 		}
+
+		private static User GetUser()
+		{
+			return new User
+			{
+				Id = Guid.NewGuid().ToString(),
+				FirstName = "Mohsen",
+				LastName = "Saberi",
+				UserName = "DA_SaBeR",
+				NormalizedUserName = "DA_SABER",
+				Email = "m.saberi1999@gmail.com",
+				NormalizedEmail = "M.SABERI1999@GMAIL.COM",
+				EmailConfirmed = true,
+				PasswordHash = "AQAAAAEAACcQAAAAEMabqPa2nqVtYaCxrJWLXDp15xcooy4MYT7lP9qQXMjiplLLYISRq55o0tI7a0m+IA==",
+				SecurityStamp = "I7RKTNIG7Z4MFJTE25PRHNDYPTTQATTT",
+				ConcurrencyStamp = "98cec0e0-0bf7-4aa2-91a5-7339a44bbef4",
+				PhoneNumber = "989304072620",
+				PhoneNumberConfirmed = true,
+				AccessFailedCount = 0,
+				LockoutEnabled = true,
+				LockoutEnd = null,
+				TwoFactorEnabled = false
+			};
+		}
+
 	}
 }

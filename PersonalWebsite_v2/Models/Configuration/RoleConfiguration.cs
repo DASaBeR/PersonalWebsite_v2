@@ -15,9 +15,11 @@ namespace PersonalWebsite_v2.Models.Configuration
             builder.HasData(
             new IdentityRole
             {
-                Name = "Administrator",
-                NormalizedName = "ADMINISTRATOR"
-            });
+                Id = "7b60d004-3d87-4b4d-9c0f-934e5d8fd1ba",
+								Name = "Administrator",
+                NormalizedName = "ADMINISTRATOR",
+                ConcurrencyStamp = "cf25c884-224c-498b-88ac-c87e947f6e1a"
+						});
 
         }
     }

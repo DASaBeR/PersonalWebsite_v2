@@ -13,12 +13,12 @@ namespace PersonalWebsite_v2.Repository
 
 		public void AddSkill(Skill skill)
 		{
-			throw new NotImplementedException();
+			Create(skill);
 		}
 
 		public void DeleteSkill(Skill skill)
 		{
-			throw new NotImplementedException();
+			Delete(skill);
 		}
 
 		public IEnumerable<Skill> GetSkills(bool trackChanges) =>
@@ -26,7 +26,7 @@ namespace PersonalWebsite_v2.Repository
 
 		public void UpdateSkill(Skill skill)
 		{
-			throw new NotImplementedException();
+			Update(skill);
 		}
 
 

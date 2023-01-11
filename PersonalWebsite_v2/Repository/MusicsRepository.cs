@@ -12,12 +12,12 @@ namespace PersonalWebsite_v2.Repository
 
 		public void AddMusic(Music music)
 		{
-			throw new NotImplementedException();
+			Create(music);
 		}
 
 		public void DeleteMusic(Music music)
 		{
-			throw new NotImplementedException();
+			Delete(music);
 		}
 
 		public IEnumerable<Music> GetMusics(bool trackChanges) =>
@@ -25,7 +25,7 @@ namespace PersonalWebsite_v2.Repository
 
 		public void UpdateMusic(Music music)
 		{
-			throw new NotImplementedException();
+			Update(music);
 		}
 	}
 }

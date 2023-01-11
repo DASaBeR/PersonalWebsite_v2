@@ -147,19 +147,18 @@ namespace PersonalWebsite_v2.Controllers
 		[HttpGet]
 		public IActionResult Skill(Guid id)
 		{
-			var skill = _repositoryManager.Skills.GetSkills(trackChanges: false).Where(s => s.Id == id).SingleOrDefault();
 
-			if (skill != null)
+			if (id == Guid.Empty)
 			{
-				var vm = new SkillVM
-				{
-					Name = skill.Name,
-					Percent = skill.Percent,
-				};
-				return View("Skill", vm);
+				return View("Skill");
 			}
-
-			return RedirectToAction("Skills");
+			var skill = _repositoryManager.Skills.GetSkills(trackChanges: false).Where(s => s.Id == id).SingleOrDefault();
+			var vm = new SkillVM
+			{
+				Name = skill.Name,
+				Percent = skill.Percent,
+			};
+			return View("Skill" , vm);
 		}
 
 		[HttpPost]
@@ -220,12 +219,18 @@ namespace PersonalWebsite_v2.Controllers
 		[HttpGet]
 		public IActionResult Speciality(Guid id)
 		{
-			var speciality = _repositoryManager.Specialities.GetSpecialities(trackChanges: false).Where(s => s.Id == id).SingleOrDefault();
-			if (speciality != null)
+			if (id == Guid.Empty)
 			{
-				return View("Speciality", speciality);
+				return View("Speciality");
 			}
-			return RedirectToAction("Specialities");
+			var speciality = _repositoryManager.Specialities.GetSpecialities(trackChanges: false).Where(s => s.Id == id).SingleOrDefault();
+			var vm = new Speciality
+			{
+				Id = speciality.Id,
+				Name = speciality.Name
+			};
+
+			return View("Speciality" , vm);
 		}
 
 		[HttpPost]
@@ -282,12 +287,20 @@ namespace PersonalWebsite_v2.Controllers
 		[HttpGet]
 		public IActionResult Music(Guid id)
 		{
-			var music = _repositoryManager.Musics.GetMusics(trackChanges: false).Where(s => s.Id == id).SingleOrDefault();
-			if (music != null)
+			if (id == Guid.Empty)
 			{
-				return View("Music", music);
+				return View("Music");
 			}
-			return RedirectToAction("Musics");
+
+			var music = _repositoryManager.Musics.GetMusics(trackChanges: false).Where(s => s.Id == id).SingleOrDefault();
+			var vm = new Music
+			{
+				Id = music.Id,
+				Name = music.Name,
+				Link = music.Link
+			};
+
+			return View("Music" , vm);
 		}
 
 		[HttpPost]

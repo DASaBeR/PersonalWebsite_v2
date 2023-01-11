@@ -8,16 +8,6 @@ namespace PersonalWebsite_v2.Repository
 
 		public FactsRepository(RepositoryContext repositoryContext):base(repositoryContext)
 		{
-
-		}
-		public void AddFacts(Fact fact)
-		{
-			throw new NotImplementedException();
-		}
-
-		public void DeleteFacts(Fact fact)
-		{
-			throw new NotImplementedException();
 		}
 
 		public Fact GetFacts(bool trackChanges) =>
@@ -25,7 +15,7 @@ namespace PersonalWebsite_v2.Repository
 
 		public void UpdateFacts(Fact fact)
 		{
-			throw new NotImplementedException();
+			Update(fact);
 		}
 
 

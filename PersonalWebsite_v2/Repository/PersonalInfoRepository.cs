@@ -9,22 +9,13 @@ namespace PersonalWebsite_v2.Repository
 		{
 
 		}
-		public void AddPersonalInfo(bool trackChanges)
-		{
-			throw new NotImplementedException();
-		}
 
 		public PersonalInfo GetPersonalInfo(bool trackChanges) =>
 			FindAll(trackChanges).FirstOrDefault();
 
-		public void RemovePersonalInfo(Guid id)
-		{
-			throw new NotImplementedException();
-		}
-
 		public void UpdatePersonalInfo(PersonalInfo personalInfo)
 		{
-			throw new NotImplementedException();
+			Update(personalInfo);
 		}
 	}
 }
